@@ -153,7 +153,7 @@ $idAulaSelecionada = isset($_POST['idAulas']) ? $_POST['idAulas'] : '';
                             <form id="form4" action="indexPresenca.php" method="POST">
                                 <!-- Seletor de Curso -->
                                 <div class="input-field col s12">
-                                    <select id="form4" style="width: 40%;" class="form-select form-select-lg" name="idCurso" id="idCurso" onchange="handleCourseChange(event, this)">
+                                    <select id="form4" style="width: 40%;" class="form-select form-select-lg teste" name="idCurso"  onchange="handleCourseChange(event, this)">
                                         <option  value="" disabled selected>Escolha o curso</option>
                                         <?php
                                         $sqlCurso = "SELECT idCurso, nomeCurso FROM curso";
@@ -166,9 +166,12 @@ $idAulaSelecionada = isset($_POST['idAulas']) ? $_POST['idAulas'] : '';
                                     </select>
                                 </div>
                                 <!-- Seletor de Aula -->
-                                <?php if (!empty($idCursoSelecionado)) : ?>
+                                <?php 
+                                                                
+                                if (!empty($idCursoSelecionado)) : ?>
+                               <?php var_dump($idCursoSelecionado)?>
                                     <div class="input-field col s12">
-                                        <select id="form4" style="width: 40%;" class="form-select form-select-lg" name="idAulas" id="idAulas" onchange="handleCourseChange(event, this)">
+                                        <select id="form5" style="width: 40%;" class="form-select form-select-lg" name="idAulas" id="idAulas" onchange="handleCourseChange(event, this)">
                                             <option value="" disabled selected>Escolha a aula</option>
                                             <?php
                                             $sqlAula = "SELECT idAulas, tituloAula FROM aulas WHERE idCurso = '$idCursoSelecionado'";
